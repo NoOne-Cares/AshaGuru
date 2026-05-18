@@ -7,9 +7,9 @@ export default function FeatureBar({ onQuickAction }: Props) {
     const features = [
         { label: "🩺 Clinical Support", phrase: "clinical" },
         { label: "🎭 Role-Play Training", phrase: "train me" },
-        { label: "📄 Generate Referral", phrase: "refer" },
-        { label: "📊 Monthly Report", phrase: "report" },
-        { label: "📢 Outbreak Check", phrase: "outbreak" },
+        // { label: "📄 Generate Referral", phrase: "refer" },
+        // { label: "📊 Monthly Report", phrase: "report" },
+        // { label: "📢 Outbreak Check", phrase: "outbreak" },
     ];
 
     return (

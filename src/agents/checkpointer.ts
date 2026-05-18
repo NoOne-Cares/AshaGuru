@@ -1,5 +1,7 @@
 import { PostgresSaver } from "@langchain/langgraph-checkpoint-postgres";
 import pg from "pg";
+import fs from "fs";
+import path from "path";
 
 const { Pool } = pg;
 
@@ -8,17 +10,21 @@ let checkpointer: PostgresSaver | null = null;
 export async function getPostgresCheckpointer(): Promise<PostgresSaver> {
     if (checkpointer) return checkpointer;
 
+    const ca = fs
+        .readFileSync(path.join(process.cwd(), "certs", "ca.pem"))
+        .toString();
+
     const pool = new Pool({
         connectionString: process.env.POSTGRES_URL,
         ssl: {
-            rejectUnauthorized: false,
+            ca,
+            rejectUnauthorized: true,
         },
         max: 10,
     });
 
     checkpointer = new PostgresSaver(pool);
 
-    // Create tables on first boot
     await checkpointer.setup();
 
     return checkpointer;

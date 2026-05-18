@@ -7,7 +7,7 @@ import UseCases from "@/components/landing/UseCases";
 
 import CtaBanner from "@/components/landing/CtaBanner";
 import Footer from "@/components/landing/Footer";
-
+console.log(process.env.GOOGLE_API_KEY);
 export default function LandingPage() {
     return (
         <>

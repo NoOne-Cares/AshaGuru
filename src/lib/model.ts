@@ -8,8 +8,7 @@
 //     // }
 //     return new ChatGoogleGenerativeAI({
 //         model: modelName,
-//         apiKey: "AIzaSyDWoD5v4Qqwy91DdPXwib7tu_ZsQ5lsbh0",
-//         temperature: 0,
+//
 //         maxOutputTokens: 1024,
 //     });
 // }
@@ -32,7 +31,7 @@ export function getModel(modelName: string = "gemma-4-31b-it") {
 
     return new ChatGoogleGenerativeAI({
         model: modelName,
-        apiKey: "AIzaSyDWoD5v4Qqwy91DdPXwib7tu_ZsQ5lsbh0",
+        apiKey: process.env.GOOGLE_API_KEY,
         temperature: 0,
         maxOutputTokens: 1024,
     });
