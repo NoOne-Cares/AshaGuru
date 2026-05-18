@@ -1,5 +1,93 @@
-@import "tailwindcss";
+/* @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Instrument+Serif:ital@0;1&display=swap"); */
 
+@import "tailwindcss";
+@theme {
+    --color-teal-50: #e1f5ee;
+    --color-teal-100: #9fe1cb;
+    --color-teal-400: #1d9e75;
+    --color-teal-600: #0f6e56;
+    --color-teal-800: #085041;
+    --color-teal-900: #04342c;
+
+    --color-sand-50: #f7f5f0;
+    --color-sand-100: #eeecea;
+    --color-sand-200: #e0ded8;
+
+    --color-ink-900: #1c1c1a;
+    --color-ink-700: #3d3d3a;
+    --color-ink-400: #6b6b67;
+
+    --color-danger-50: #feeceb;
+    --color-danger-400: #c0776a;
+    --color-danger-700: #993c1d;
+
+    --font-serif: "Instrument Serif", Georgia, serif;
+    --font-sans: "DM Sans", system-ui, sans-serif;
+
+    --animate-float: float 4s ease-in-out infinite;
+    --animate-float-slow: float 4s ease-in-out infinite 2s;
+    --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+    --animate-fade-up: fade-up 0.6s ease forwards;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes pulse-dot {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Intersection-observer driven reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-sand-50);
+    color: var(--color-ink-900);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* 
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +111,4 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
