@@ -34,12 +34,9 @@ Create `.env.local`:
 # Required: Google AI Studio API key
 # Get yours at: https://aistudio.google.com/apikey
 GOOGLE_API_KEY=your_google_api_key_here
-
+POSTGRES_URL="db_url_here"
 # Optional: Use local Ollama models instead of API
 USE_OLLAMA=false
-
-# Optional: PostgreSQL database for server-side storage
-DATABASE_URL=postgresql://user:password@localhost:5432/ashaguru
 ```
 
 ---
