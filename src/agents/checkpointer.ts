@@ -10,14 +10,16 @@ let checkpointer: PostgresSaver | null = null;
 export async function getPostgresCheckpointer(): Promise<PostgresSaver> {
     if (checkpointer) return checkpointer;
 
-    const ca = fs
-        .readFileSync(path.join(process.cwd(), "certs", "ca.pem"))
-        .toString();
+    // const ca = fs
+    //     .readFileSync(path.join(process.cwd(), "certs", "ca.pem"))
+    //     .toString();
 
     const pool = new Pool({
         connectionString: process.env.POSTGRES_URL,
         ssl: {
-            ca,
+            // ca,
+            // rejectUnauthorized: true,
+            ca: process.env.POSTGRES_CA?.replace(/\\n/g, "\n"),
             rejectUnauthorized: true,
         },
         max: 10,
