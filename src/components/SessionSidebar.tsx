@@ -20,7 +20,7 @@ export default function SessionSidebar({
         <div className="w-64 bg-gray-50 dark:bg-gray-800 border-r dark:border-gray-700 p-4 flex flex-col h-full">
             <button
                 onClick={onNew}
-                className="mb-4 px-4 py-2 bg-primary text-white rounded-full hover:bg-teal-700 transition"
+                className="mb-4 px-4 py-2 bg-teal-700 text-white rounded-full hover:bg-teal-700 transition"
             >
                 + New Patient
             </button>
